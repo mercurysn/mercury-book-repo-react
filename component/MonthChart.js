@@ -30,6 +30,82 @@ const data = [
     name: 'Page G',
     uv: 3490,
   },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+  },
 ];
 
 const MonthChart = () => (
