@@ -25,8 +25,8 @@ const Author = styled.div`
 `;
 
 const postMetaStyle = {
-  display: 'none'
-}
+  display: 'none',
+};
 
 const BookImage = styled.div`
   -webkit-box-shadow: 0 2px 7.68px .32px rgba(0, 0, 0, 0.4),0 12px 26px 0 rgba(0, 0, 0, 0.4);
@@ -74,7 +74,7 @@ const Book = (props) => (
     <Link href='/books/book'>
     <a>
       <CoverImage suppressClassNameWarning src={props.coverUrl} large={props.large} />
-      <BookTexture suppressClassNameWarning /> 
+      <BookTexture suppressClassNameWarning />
     </a>
     </Link>
   </BookImage>
@@ -83,6 +83,6 @@ const Book = (props) => (
     {props.author}
   </Author>
 </BookFrame>
-)
+);
 
 export default Book;

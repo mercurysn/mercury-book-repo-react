@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import Header from './Header'
-import Meta from './Meta'
-import styled, { createGlobalStyle } from 'styled-components';
+import React, {Component} from 'react';
+import Header from './Header';
+import Meta from './Meta';
+import styled, {createGlobalStyle} from 'styled-components';
 
 const StyledPage = styled.div`
 `;
@@ -18,7 +18,6 @@ body {
 }
 `;
 
-
 export default class Page extends Component {
   render() {
     return (
@@ -30,6 +29,6 @@ export default class Page extends Component {
         </Inner>
         <GlobalStyle />
       </StyledPage>
-    )
+    );
   }
 }
