@@ -1,12 +1,17 @@
+/* eslint-disable react/react-in-jsx-scope */
 import App, {Container} from 'next/app';
 import Page from '../component/Page';
 const axios = require('axios');
 
 class MyApp extends App {
   static async getInitialProps({req}) {
-    const res = await axios.get('https://s3.amazonaws.com/mercury-book-repo/BookWithDescription.json');
+    const yearStats = await axios.get('https://s3.amazonaws.com/mercury-book-repo/yearStats.json');
+    const books = await axios.get('https://s3.amazonaws.com/mercury-book-repo/BookWithDescription.json');
 
-    return {result: res.data};
+    return {
+      yearStats: yearStats.data,
+      books: books.data,
+    };
   }
 
   render() {
@@ -15,7 +20,7 @@ class MyApp extends App {
     return (
       <Container>
         <Page>
-          <Component books={this.props.result} />
+          <Component books={this.props.books} yearStats={this.props.yearStats} />
         </Page>
       </Container>
     );
