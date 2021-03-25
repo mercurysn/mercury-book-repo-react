@@ -1,12 +1,12 @@
 /* eslint-disable react/react-in-jsx-scope */
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
 import PropTypes from 'prop-types';
 
-const MonthChart = (props) => (
+const TimeChart = (props) => (
 
   <BarChart
-    width={800}
-    height={500}
+    width={props.width ? props.width : 800}
+    height={props.height ? props.height : 500}
     data={props.data}
     layout={'horizontal'}
     margin={{
@@ -25,8 +25,10 @@ const MonthChart = (props) => (
   </BarChart>
 );
 
-MonthChart.propTypes = {
-  yearStats: PropTypes.array.isRequired,
+TimeChart.propTypes = {
+  data: PropTypes.array.isRequired,
+  width: PropTypes.int,
+  height: PropTypes.int,
 };
 
-export default MonthChart;
+export default TimeChart;

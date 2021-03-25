@@ -1,26 +1,26 @@
 import React from 'react';
+import TimeChart from '../../../component/TimeChart';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import TimeChart from '../../../component/TimeChart';
 
 const StyleWrapper = styled.div`
   font-family: 'Ubuntu', sans-serif;
   font: 15px 'Ubuntu', Helvetica, Arial, sans-serif;
 `;
 
-class Month extends React.Component {
+class Year extends React.Component {
   render() {
     return (
       <StyleWrapper>
-        <h1>Monthly Book Reads</h1>
-        <TimeChart data={this.props.monthStats} width={1000} />
+        <h1>Yearly Book Reads</h1>
+        <TimeChart data={this.props.yearStats} />
       </StyleWrapper>
     );
   }
 }
 
-Month.propTypes = {
-  monthStats: PropTypes.array.isRequired,
+Year.propTypes = {
+  yearStats: PropTypes.array.isRequired,
 };
 
-export default Month;
+export default Year;
