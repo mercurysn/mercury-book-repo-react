@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import TimeChart from '../../../component/TimeChart';
 
 const StyleWrapper = styled.div`
-  font-family: 'Ubuntu', sans-serif;
-  font: 15px 'Ubuntu', Helvetica, Arial, sans-serif;
+  font-size: 13px;
 `;
 
 class Month extends React.Component {

@@ -4,7 +4,7 @@ import Book from '../../component/Book';
 import styled from 'styled-components';
 
 const StyleWrapper = styled.div`
-  font: 15px Helvetica, Arial, sans-serif;
+  font-size: 12px;
 `;
 
 class BookPage extends React.Component {

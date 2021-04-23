@@ -13,8 +13,9 @@ const Inner = styled.div`
 `;
 
 const GlobalStyle = createGlobalStyle`
-body {
-  font-size: 20px;
+html {
+  font-family: 'Ubuntu', sans-serif;
+  font: 'Ubuntu', Helvetica, Arial, sans-serif;
 }
 `;
 
