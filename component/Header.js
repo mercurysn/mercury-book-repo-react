@@ -11,6 +11,7 @@ const Logo = styled.h1`
   background-color: blue;
   color: white;
   padding: 20px;
+  border-radius: 10px;
 `;
 
 const Header = () => (
