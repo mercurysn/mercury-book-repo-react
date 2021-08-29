@@ -22,8 +22,7 @@ const Row = styled.div`
 const RowLeft = styled.div`
   display: flex;
   background-color: red;
-  flex-grow: 1;
-  width: 200px;
+  flex: 0 0 10em;
 `;
 
 const RowRight = styled.div`
@@ -36,12 +35,16 @@ const RowRight = styled.div`
 const RowRightItem = styled.div`
   display: flex;
   background-color: pink;
-  border: 1px sold blue;
+  border: 1px solid blue;
+  justify-content: center;
 `;
 
 class IndexPage extends React.Component {
   render() {
     const {books} = this.props;
+    const bookSlice = books.slice(0, 7);
+
+    console.log(bookSlice);
 
     return (
       <div>
@@ -52,7 +55,7 @@ class IndexPage extends React.Component {
               <p>There is some text here</p>
             </RowLeft>
             <RowRight>
-              {books.map(book => (
+              {bookSlice.map(book => (
                 <RowRightItem>
                   <StyleWrapper>
                     <Book coverUrl={book.CoverUrl} id={book.Id} bookTitle={book.Name}/>
