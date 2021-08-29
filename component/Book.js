@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 const fontSize = '12px';
+const fontSizeLarge = '15px';
 
 const BookFrame = styled.div`
   display: flex;
@@ -9,18 +10,17 @@ const BookFrame = styled.div`
   margin: 20px;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: white;
 `;
 
 const Title = styled.div`
   display: flex;
   font-size: ${fontSize};
+  font-size: ${props => props.large ? fontSizeLarge : fontSize};
   flex-wrap: wrap;
-  background-color: yellow;
   width: ${props => props.large ? '180px' : '110px'};
   justify-content: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: 5px;
   text-align: center;
 `;
 
@@ -84,7 +84,7 @@ const Book = (props) => (
     </a>
     </Link>
   </BookImage>
-  <Title suppressClassNameWarning>{props.bookTitle}</Title>
+  <Title suppressClassNameWarning large={props.large}>{props.bookTitle}</Title>
   <Author suppressClassNameWarning>
     {props.author}
   </Author>

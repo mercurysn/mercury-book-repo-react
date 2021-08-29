@@ -4,34 +4,30 @@ import styled from 'styled-components';
 
 const Main = styled.div`
   display: flex;
-  background-color: black;
   flex-direction: column;
+  border: 2px solid grey;
 `;
 
 const Row = styled.div`
   display: flex;
-  background-color: blue;
   flex-grow: 1;
-  border: 1px solid yellow;
 `;
 
 const RowLeft = styled.div`
   display: flex;
-  background-color: red;
   flex: 0 0 10em;
+  padding: 10px;
 `;
 
 const RowRight = styled.div`
   display: flex;
-  background-color: green;
   flex-grow: 5;
   flex-wrap: wrap;
+  border: 1px solid grey;
 `;
 
 const RowRightItem = styled.div`
   display: flex;
-  background-color: orange;
-  border: 1px solid blue;
   align-items: baseline;  
   font: 15px, 'Ubuntu', Helvetica, Arial, sans-serif;
 `;
@@ -39,20 +35,18 @@ const RowRightItem = styled.div`
 class IndexPage extends React.Component {
   render() {
     const {books} = this.props;
-    const bookSlice = books.slice(0, 7);
-
-    console.log(bookSlice);
+    const uniqueBooks = books.filter((v,i,a)=>a.findIndex(t=>(t.Name === v.Name && t.Author[0] === v.Author[0]))===i)
 
     return (
       <div>
-        <h1>Read Books (table)</h1>
+        <h1>Ratings</h1>
         <Main>
           <Row>
             <RowLeft>
-              <p>There is some text here</p>
+              <p>5 Stars</p>
             </RowLeft>
             <RowRight>
-              {bookSlice.map(book => (
+              {uniqueBooks.filter(x => x.Ratings === 5).map(book => (
                 <RowRightItem>
                   <Book coverUrl={book.CoverUrl} id={book.Id} bookTitle={book.Name}/>
                 </RowRightItem>

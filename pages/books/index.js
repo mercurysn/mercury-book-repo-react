@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const Main = styled.div`
   display: flex;
-  background-color: black;
   font: 15px, 'Ubuntu', Helvetica, Arial, sans-serif;
   flex-wrap: wrap;
   flex-direction: row;
@@ -12,8 +11,6 @@ const Main = styled.div`
 
 const Item = styled.div`
   display: flex;
-  background-color: orange;
-  border: 1px solid blue;
   align-items: baseline;
 `;
 
