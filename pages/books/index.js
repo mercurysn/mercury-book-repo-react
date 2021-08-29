@@ -12,7 +12,7 @@ class IndexPage extends React.Component {
 
     return (
       <div>
-        <h1>Hellos</h1>
+        <h1>My Books</h1>
         {books.map(book => (
             <StyleWrapper>
               <Book coverUrl={book.CoverUrl} id={book.Id} />
