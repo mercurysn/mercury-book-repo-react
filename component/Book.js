@@ -8,14 +8,13 @@ const BookFrame = styled.div`
   margin: 10px 35px 35px 5px;
   float: left;
   width: ${props => props.large ? '180px' : '110px'};
-  height: ${props => props.large ? '280px' : '160px'};
+  height: ${props => props.large ? '280px' : '200px'};
 `;
 
 const Title = styled.div`
   margin-top: 15px;
   text-align: center;
   font-size: ${fontSize};
-  font-weight: bold;
 `;
 
 const Author = styled.div`
