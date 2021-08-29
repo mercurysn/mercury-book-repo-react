@@ -2,8 +2,19 @@ import React from 'react';
 import Book from '../../component/Book';
 import styled from 'styled-components';
 
-const StyleWrapper = styled.div`
+const Main = styled.div`
+  display: flex;
+  background-color: black;
   font: 15px, 'Ubuntu', Helvetica, Arial, sans-serif;
+  flex-wrap: wrap;
+  flex-direction: row;
+`;
+
+const Item = styled.div`
+  display: flex;
+  background-color: orange;
+  border: 1px solid blue;
+  align-items: baseline;
 `;
 
 class IndexPage extends React.Component {
@@ -13,11 +24,13 @@ class IndexPage extends React.Component {
     return (
       <div>
         <h1>Read Books</h1>
-        {books.map(book => (
-            <StyleWrapper>
-              <Book coverUrl={book.CoverUrl} id={book.Id} bookTitle={book.Name}/>
-            </StyleWrapper>
-        ))}
+        <Main>
+          {books.map(book => (
+              <Item>
+                <Book coverUrl={book.CoverUrl} id={book.Id} bookTitle={book.Name}/>
+              </Item>
+          ))}
+        </Main>
       </div>
     );
   }

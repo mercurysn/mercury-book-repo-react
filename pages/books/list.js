@@ -2,10 +2,6 @@ import React from 'react';
 import Book from '../../component/Book';
 import styled from 'styled-components';
 
-const StyleWrapper = styled.div`
-  font: 15px, 'Ubuntu', Helvetica, Arial, sans-serif;
-`;
-
 const Main = styled.div`
   display: flex;
   background-color: black;
@@ -34,9 +30,10 @@ const RowRight = styled.div`
 
 const RowRightItem = styled.div`
   display: flex;
-  background-color: pink;
+  background-color: orange;
   border: 1px solid blue;
-  justify-content: center;
+  align-items: baseline;  
+  font: 15px, 'Ubuntu', Helvetica, Arial, sans-serif;
 `;
 
 class IndexPage extends React.Component {
@@ -57,14 +54,23 @@ class IndexPage extends React.Component {
             <RowRight>
               {bookSlice.map(book => (
                 <RowRightItem>
-                  <StyleWrapper>
-                    <Book coverUrl={book.CoverUrl} id={book.Id} bookTitle={book.Name}/>
-                  </StyleWrapper>
+                  <Book coverUrl={book.CoverUrl} id={book.Id} bookTitle={book.Name}/>
                 </RowRightItem>
               ))}
             </RowRight>
           </Row>
-          <Row></Row>
+          <Row>
+          <RowLeft>
+              <p>There is some text here</p>
+            </RowLeft>
+            <RowRight>
+              {books.slice(0,15).map(book => (
+                <RowRightItem>
+                  <Book coverUrl={book.CoverUrl} id={book.Id} bookTitle={book.Name}/>
+                </RowRightItem>
+              ))}
+            </RowRight>
+          </Row>
           <Row></Row>
         </Main>
       </div>

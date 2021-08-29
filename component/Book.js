@@ -4,17 +4,24 @@ import styled from 'styled-components';
 const fontSize = '12px';
 
 const BookFrame = styled.div`
+  display: flex;
   padding: 0px;
-  margin: 10px 35px 35px 5px;
-  float: left;
-  width: ${props => props.large ? '180px' : '110px'};
-  height: ${props => props.large ? '280px' : '200px'};
+  margin: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: white;
 `;
 
 const Title = styled.div`
-  margin-top: 15px;
-  text-align: center;
+  display: flex;
   font-size: ${fontSize};
+  flex-wrap: wrap;
+  background-color: yellow;
+  width: ${props => props.large ? '180px' : '110px'};
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
 `;
 
 const Author = styled.div`
