@@ -15,7 +15,7 @@ const Row = styled.div`
 
 const RowLeft = styled.div`
   display: flex;
-  flex: 0 0 10em;
+  flex: 0 0 5em;
   padding: 10px;
 `;
 
@@ -36,36 +36,26 @@ class IndexPage extends React.Component {
   render() {
     const {books} = this.props;
     const uniqueBooks = books.filter((v,i,a)=>a.findIndex(t=>(t.Name === v.Name && t.Author[0] === v.Author[0]))===i)
+    const stars = [5, 4.5, 4, 3.5, 3, 2.5, 2]
 
     return (
       <div>
         <h1>Ratings</h1>
         <Main>
-          <Row>
+          {stars.map(star => {
+            return <Row>
             <RowLeft>
-              <p>5 Stars</p>
+              <p>{star} Stars</p>
             </RowLeft>
             <RowRight>
-              {uniqueBooks.filter(x => x.Ratings === 5).map(book => (
+              {uniqueBooks.filter(x => x.Ratings === star).map(book => (
                 <RowRightItem>
-                  <Book coverUrl={book.CoverUrl} id={book.Id} bookTitle={book.Name}/>
+                  <Book coverUrl={book.CoverUrl} extrasmall id={book.Id}/>
                 </RowRightItem>
               ))}
             </RowRight>
           </Row>
-          <Row>
-          <RowLeft>
-              <p>There is some text here</p>
-            </RowLeft>
-            <RowRight>
-              {books.slice(0,15).map(book => (
-                <RowRightItem>
-                  <Book coverUrl={book.CoverUrl} id={book.Id} bookTitle={book.Name}/>
-                </RowRightItem>
-              ))}
-            </RowRight>
-          </Row>
-          <Row></Row>
+          })}
         </Main>
       </div>
     );
