@@ -78,6 +78,13 @@ const Nav = () => (
                 <Link href="/books/chart/yearByYear">Yearly Compare</Link>
             </Dropcontent>
         </Dropdown>
+        <Dropdown>
+            <DropBtn>List</DropBtn>
+            <Dropcontent>
+                <Link href="/books/lists/byrating">By Rating</Link>
+                <Link href="/books/lists/byyear">By Year</Link>
+            </Dropcontent>
+        </Dropdown>
     </NavBar>
 );
 
