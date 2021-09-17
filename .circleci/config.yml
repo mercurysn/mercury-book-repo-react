@@ -30,10 +30,11 @@ jobs:
           aws-region: AWS_REGION
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           from: out
-          to: 's3://mercury-photos'
+          to: 's3://simonng.dev'
 
 
 workflows:
   build:
     jobs:
       - deploy
+
