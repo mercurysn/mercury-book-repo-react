@@ -4,12 +4,12 @@ orbs: # declare what orbs we are going to use
 version: 2.1 # using 2.1 provides access to orbs and other features
 
 jobs:
-  myjob:
+  checkout-build:
     docker:
       - image: circleci/node:14.17
     steps:
       - checkout
-      - run: ls -l
+      - run: yarn
 
 workflows:
   build:
