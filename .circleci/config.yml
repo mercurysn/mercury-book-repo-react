@@ -14,4 +14,4 @@ jobs:
 workflows:
   build:
     jobs:
-      - myjob
+      - checkout-build
