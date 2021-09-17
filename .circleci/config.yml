@@ -9,7 +9,7 @@ jobs:
       - image: alpine:3.11
     steps:
       - checkout
-      - run: yarn"
+      - run: yarn
 
 workflows:
   build:
