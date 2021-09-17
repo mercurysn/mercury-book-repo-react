@@ -19,7 +19,8 @@ jobs:
       - image: circleci/node:14.17
     steps:
       - checkout
-      - run: yarn && yarn export
+      - run: yarn
+      - run: yarn export
       - aws-s3/sync:
           arguments: |
             --acl public-read \
