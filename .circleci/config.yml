@@ -7,7 +7,7 @@ orbs:
 version: 2.1 # using 2.1 provides access to orbs and other features
 
 jobs:
-  build:
+  build-repo:
     docker:
       - image: circleci/node:14.17
     steps:
@@ -18,6 +18,7 @@ jobs:
       - image: circleci/node:14.17
     steps:
       - checkout
+      - run: yarn
       - run: yarn build
       - run: yarn export
       - aws-s3/sync:
@@ -34,10 +35,8 @@ jobs:
 workflows:
   build:
     jobs:
-      - build
+      - build-repo
       - deploy:
-        requires:
-          - build
         filters:
           branches:
             only: master
