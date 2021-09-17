@@ -6,7 +6,7 @@ version: 2.1 # using 2.1 provides access to orbs and other features
 jobs:
   myjob:
     docker:
-      - image: alpine:3.11
+      - image: circleci/node:14.17
     steps:
       - checkout
       - run: pwd
