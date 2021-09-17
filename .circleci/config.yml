@@ -40,5 +40,5 @@ workflows:
       - deploy:
         filters:
           branches:
-            only: 
+            ignore: 
               - master
