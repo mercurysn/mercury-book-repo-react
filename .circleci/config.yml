@@ -13,7 +13,7 @@ jobs:
     steps:
       - checkout
       - run: yarn
-  deploy:
+  build-deploy:
     docker: # Use the Docker execut or for the deploy job
       - image: circleci/node:14.17
     steps:
@@ -34,11 +34,11 @@ jobs:
 
 workflows:
   version: 2
-  filters:
-    branches:
-      ignore: 
-        - /master/
   build:
     jobs:
       - build
-      - deploy
+      - build-deploy:
+        filters:
+          branches:
+            only: 
+              - /master/
