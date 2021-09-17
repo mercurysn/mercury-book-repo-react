@@ -9,10 +9,7 @@ jobs:
       - image: circleci/node:14.17
     steps:
       - checkout
-      - run: pwd
-      - run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-      - run: npm install --global yarn
-      - run: npm install
+      - run: ls -l
 
 workflows:
   build:
