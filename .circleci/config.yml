@@ -7,7 +7,7 @@ orbs:
 version: 2.1 # using 2.1 provides access to orbs and other features
 
 jobs:
-  checkout-build:
+  build:
     docker:
       - image: circleci/node:14.17
     steps:
@@ -36,7 +36,7 @@ workflows:
   build:
     jobs:
       - build
-      - deploy
+      - deploy:
         filters:
           branches:
             only: 
