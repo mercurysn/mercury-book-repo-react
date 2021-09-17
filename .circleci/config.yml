@@ -6,6 +6,16 @@ orbs:
 
 version: 2.1 # using 2.1 provides access to orbs and other features
 
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - build:
+        filters:
+          branches:
+            only: 
+              - /^config-test/
+
 jobs:
   build:
     docker:
@@ -30,14 +40,3 @@ jobs:
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           from: out
           to: 's3://simonng.dev'
-
-
-workflows:
-  version: 2
-  deploy:
-    jobs:
-      - build:
-        filters:
-          branches:
-            only: 
-              - /^config-test/
