@@ -18,7 +18,6 @@ jobs:
       - image: circleci/node:14.17
     steps:
       - checkout
-      - run: yarn
       - run: yarn build
       - run: yarn export
       - aws-s3/sync:
@@ -37,7 +36,8 @@ workflows:
     jobs:
       - build
       - deploy:
+        requres:
+          - build
         filters:
           branches:
-            only: 
-              - master
+            only: master
