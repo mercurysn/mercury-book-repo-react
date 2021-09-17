@@ -20,6 +20,7 @@ jobs:
     steps:
       - checkout
       - run: yarn
+      - run: yarn build
       - run: yarn export
       - aws-s3/sync:
           arguments: |
