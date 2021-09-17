@@ -9,7 +9,7 @@ jobs:
       - image: alpine:3.11
     steps:
       - checkout
-      - run: echo "this is the build job"
+      - run: yarn"
 
 workflows:
   build:
