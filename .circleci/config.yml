@@ -16,10 +16,6 @@ jobs:
   build-deploy:
     docker:
       - image: circleci/node:14.17
-    filter:
-      branches:
-        only: 
-          - /^config-test/
     steps:
       - checkout
       - run: yarn
