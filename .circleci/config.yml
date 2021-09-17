@@ -34,11 +34,11 @@ jobs:
 
 workflows:
   version: 2
+  filters:
+    branches:
+      ignore: 
+        - /master/
   build:
     jobs:
       - build
-      - deploy:
-        filters:
-          branches:
-            ignore: 
-              - /master/
+      - deploy
