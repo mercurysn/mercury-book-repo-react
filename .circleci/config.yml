@@ -17,13 +17,18 @@ jobs:
   deploy:
     docker: # Use the Docker execut or for the deploy job
       - image: circleci/node:14.17
+    steps:
+      - checkout
+      - run: yarn && yarn:export
       - aws-s3/sync:
-        from: out
-        to: 's3://mercury-photos'
-        arguments: | # Optional arguments
-          --acl public-read \
-          --cache-control "max-age=86400"
-        overwrite: true # default is false
+          arguments: |
+            --acl public-read \
+            --cache-control "max-age=86400"
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-region: AWS_REGION
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          from: out
+          to: 's3://mercury-photos'
 
 
 workflows:
