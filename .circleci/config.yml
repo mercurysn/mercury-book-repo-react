@@ -1,0 +1,43 @@
+# orbs: # declare what orbs we are going to use
+#   node: circleci/node@2.0.2 # the node orb provides common node-related configuration
+
+orbs:
+   aws-s3: circleci/aws-s3@3.0.0
+
+version: 2.1 # using 2.1 provides access to orbs and other features
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:14.17
+    steps:
+      - checkout
+      - run: yarn
+  build-deploy:
+    docker:
+      - image: circleci/node:14.17
+    steps:
+      - checkout
+      - run: yarn
+      - run: yarn build
+      - run: yarn export
+      - aws-s3/sync:
+          arguments: |
+            --acl public-read \
+            --cache-control "max-age=86400"
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-region: AWS_REGION
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          from: out
+          to: 's3://simonng.dev'
+
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - build-deploy:
+        filters:
+          branches:
+            only: 
+              - /^config-test/
