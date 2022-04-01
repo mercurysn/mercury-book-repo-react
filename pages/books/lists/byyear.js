@@ -1,6 +1,5 @@
 import React from 'react';
 import Book from '../../../component/Book';
-import RowLeftTable from '../../../component/RowLeftTable';
 import styled from 'styled-components';
 
 const Main = styled.div`
@@ -18,16 +17,6 @@ const RowLeft = styled.div`
   display: flex;
   flex: 0 0 5em;
   padding: 10px;
-  flex-direction: column;
-`;
-
-const RowLeftHead = styled.div`
-  display: flex;
-`;
-
-const RowLeftBody = styled.div`
-  display: flex;
-  font-size: 10px;
 `;
 
 const RowRight = styled.div`
@@ -43,68 +32,41 @@ const RowRightItem = styled.div`
   font: 15px, 'Ubuntu', Helvetica, Arial, sans-serif;
 `;
 
-// const RowLeftTable = styled.table`
-//   border: 1px solid grey;
-//   background-color: lightskyblue;
-// `;
+function getYears() {
+  const currentYear = new Date().getFullYear();
+  const firstYear = 2009;
 
-const getYears = (limit) => {
-  let currentYear = new Date().getFullYear();
-  let years = [];
+  const years = [];
 
-  while (currentYear !== limit) {
-    years.push(currentYear);
-    currentYear--;
+  for (var i = currentYear; i >= firstYear; i--) {
+    years.push(i);
   }
-
   return years;
-};
+}
 
 class ByYearPage extends React.Component {
   render() {
     const {books} = this.props;
-    const uniqueBooks = books.filter((v,i,a)=>a.findIndex(t=>(t.Name === v.Name && t.Author[0] === v.Author[0]))===i)
-    const years = getYears(2008);
+    const uniqueBooks = books.filter((v, i, a) => a.findIndex(t => (t.Name === v.Name && t.Author[0] === v.Author[0])) === i);
+    const years = getYears();
 
     return (
       <div>
-        <h1>Year</h1>
+        <h1>Year Read</h1>
         <Main>
           {years.map(year => {
             return <Row>
             <RowLeft>
-              <RowLeftHead>
-                <p>{year}</p>
-              </RowLeftHead>
-              <RowLeftBody>
-                <RowLeftTable books={uniqueBooks.filter(x => new Date(x.DateCompleted).getFullYear() === year)} />
-                {/* <RowLeftTable>
-                  <tr>
-                    <td>
-                      {uniqueBooks.filter(x => new Date(x.DateCompleted).getFullYear() === year).length} books
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      {uniqueBooks.filter(x => new Date(x.DateCompleted).getFullYear() === year).map(x => x.Minutes).reduce((previousValue, currentValue) => previousValue + currentValue)} minutes
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      {uniqueBooks.filter(x => new Date(x.DateCompleted).getFullYear() === year).map(x => x.Pages).reduce((previousValue, currentValue) => previousValue + currentValue)} pages
-                    </td>
-                  </tr>
-                </RowLeftTable> */}
-              </RowLeftBody>
+              <p>{year}</p>
             </RowLeft>
             <RowRight>
               {uniqueBooks.filter(x => new Date(x.DateCompleted).getFullYear() === year).map(book => (
                 <RowRightItem>
-                  <Book coverUrl={book.CoverUrl} extrasmall id={book.Id}/>
+                  <Book coverUrl={book.CoverUrl} extrasmall id={book.Id} book={book}/>
                 </RowRightItem>
               ))}
             </RowRight>
-          </Row>
+          </Row>;
           })}
         </Main>
       </div>

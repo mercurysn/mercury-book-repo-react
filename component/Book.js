@@ -79,7 +79,7 @@ const CoverImage = styled.img`
 
 const Book = (props) => (
 <BookFrame suppressClassNameWarning large={props.large} small={props.small} extrasmall={props.extrasmall} className="book-frame">
-  <BookImage suppressClassNameWarning large={props.large} small={props.small} extrasmall={props.extrasmall}>
+  <BookImage title={props.book ? props.book.Name : ''} suppressClassNameWarning large={props.large} small={props.small} extrasmall={props.extrasmall}>
     <Link href='/books/book'>
     <a>
       <CoverImage suppressClassNameWarning src={props.coverUrl} large={props.large} small={props.small} extrasmall={props.extrasmall} />
