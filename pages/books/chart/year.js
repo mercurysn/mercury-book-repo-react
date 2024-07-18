@@ -12,7 +12,7 @@ class Year extends React.Component {
   render() {
     return (
       <StyleWrapper>
-        <h1>Yearly Book Reading</h1>
+        <h1>Yearly Book Readings</h1>
         <TimeChart data={this.props.yearStats} />
       </StyleWrapper>
     );
