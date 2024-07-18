@@ -7,7 +7,7 @@ class BookPage extends React.Component {
     const { books } = this.props;
     return (
       <div>
-        {/* <h1>{this.props.result[0].Name}</h1> */}
+        {}
         <Link href="/">
           <Book coverUrl={books[1].CoverUrl} />
         </Link>
